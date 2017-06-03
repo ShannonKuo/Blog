@@ -23,7 +23,7 @@ router.post('/post', (req, res) => {
     id: r.id,
 		title: r.title,
     content: r.content,
-  }
+  };
   data.push(d); 
 });
 /*

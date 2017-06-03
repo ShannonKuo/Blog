@@ -62,37 +62,42 @@ class BlogApp extends Component {
 		this.setState({ index: this.state.index + 1 });
   }
 	handlePostServer() {
-    const data = this.state.newPost;
+    //const data = this.state.newPost;
+		const data = { "id": '1', "title": 'sdf', "content": 'dfg'};
     data.time = Date();
     console.log("post test");
 		console.log(this.state.newPost.id);
 		console.log(this.state.newPost.title);
 		console.log(this.state.newPost.content);
-    fetch('/post', {
+    fetch('/api/addpost', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify( data ),
+      body: JSON.stringify({
+			  id: this.state.newPost.id,
+				title: this.state.newPost.title,
+				content: this.state.newPost.content,
+			}),
     })
     .then(res => res.json() )
     .then((response) => {
       if (!response.ok) throw new Error(response.statusText)
       return response.json()
-    })
+    });
     this.setState({ newPost: { id: '', user: '', content: '', time: '' } });
 		
   }
- /* componentDidMount() {
-    fetch('/post')
+  componentDidMount() {
+    fetch('/api/posts')
       .then(res => res.json())
       .then((data) => {
-        this.setState({ postList: data })
+        this.setState({ posts: data })
         this.setState({ index: data.length })
       })
       .catch(err => console.error(err));
-  }*/
+  }
   render() {
     return (
       <div className="BlogApp">
