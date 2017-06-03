@@ -9,10 +9,14 @@ router.get('/', (req, res) => {
   res.json(data);        
 });
 
+router.get('/post', (req, res) => {
+  res.json(data);        
+});
+
 router.get('/post/:id', (req, res) => {
   res.json(data);
 })
-router.post('/postList', (req, res) => {
+router.post('/post', (req, res) => {
   console.log('success');        
   const r = req.body;
   const d = {

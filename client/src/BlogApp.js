@@ -68,7 +68,7 @@ class BlogApp extends Component {
 		console.log(this.state.newPost.id);
 		console.log(this.state.newPost.title);
 		console.log(this.state.newPost.content);
-    fetch('/postList', {
+    fetch('/post', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -85,7 +85,7 @@ class BlogApp extends Component {
 		
   }
   componentDidMount() {
-    fetch('/')
+    fetch('/post')
       .then(res => res.json())
       .then((data) => {
         this.setState({ postList: data })
