@@ -26,7 +26,7 @@ ReactDOM.render(
   <MuiThemeProvider muiTheme={muiTheme}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/post/:id" component={Post} />
+        <Route exact path="/api/post/:id" component={Post} />
         <Route path="/" component={BlogApp} />
       </ Switch>
     </ BrowserRouter>

@@ -19,7 +19,7 @@ class PostList extends Component {
       <div
 			  className="PostList"
 		  >
-			  <Link to = {`/post/${post.id}`}>
+			  <Link to = {`/api/post/${post.id}`}>
 			    <p>title:   {post.title}</p>
 			    <p>content: {post.content}</p>
 			  </Link>

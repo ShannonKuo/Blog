@@ -17,10 +17,10 @@ function getPosts(req, res) {
   res.json(data);
 }
 function getPost(req, res) {
+  console.log('success');        
   res.json(data[req.params.id]);
 }
 function newPost(req, res) {
-  console.log('success');        
   const r = req.body;
   const d = {
     id: r.id,

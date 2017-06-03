@@ -27,9 +27,9 @@ class BlogApp extends Component {
     } else {
       this.setState({
         newPost: {
-        id: this.state.index,	
-        title: e.target.value,
-				content: this.state.newPost.content,
+          id: this.state.index,	
+          title: e.target.value,
+          content: this.state.newPost.content,
         },
       });
     }
@@ -42,7 +42,7 @@ class BlogApp extends Component {
         newPost: {
           id: this.state.index,
           content: e.target.value,
-					title: this.state.newPost.title,
+          title: this.state.newPost.title,
         },
       });
     }	
@@ -59,16 +59,16 @@ class BlogApp extends Component {
       title: this.state.newPost.title,
       content: this.state.newPost.content,
     });	
-		this.setState({ index: this.state.index + 1 });
+    this.setState({ index: this.state.index + 1 });
   }
-	handlePostServer() {
+  handlePostServer() {
     //const data = this.state.newPost;
-		const data = { "id": '1', "title": 'sdf', "content": 'dfg'};
+    const data = { "id": '1', "title": 'sdf', "content": 'dfg'};
     data.time = Date();
     console.log("post test");
-		console.log(this.state.newPost.id);
-		console.log(this.state.newPost.title);
-		console.log(this.state.newPost.content);
+    console.log(this.state.newPost.id);
+    console.log(this.state.newPost.title);
+    console.log(this.state.newPost.content);
     fetch('/api/addpost', {
       method: 'POST',
       headers: {
@@ -76,10 +76,10 @@ class BlogApp extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-			  id: this.state.newPost.id,
-				title: this.state.newPost.title,
-				content: this.state.newPost.content,
-			}),
+        id: this.state.newPost.id,
+        title: this.state.newPost.title,
+        content: this.state.newPost.content,
+      }),
     })
     .then(res => res.json() )
     .then((response) => {
@@ -104,31 +104,35 @@ class BlogApp extends Component {
         <div className="App-header">
           <h2>Turtur Blog</h2>
         </div>
-        <TextField
-				  type = "text"
-          hintText = "title..."
-          onChange = {this.handleTitleChange}
-          value = {this.state.newPost.title}
-        />
-        <TextField
-          type = "text"
-          hintText = "write something..."
-          onChange = {this.handleContentChange}
-          value = {this.state.newPost.content}
-        />
+        <div>
+          <TextField
+            type = "text"
+            hintText = "title..."
+            onChange = {this.handleTitleChange}
+            value = {this.state.newPost.title}
+          />
+        </div>
+        <div>
+          <TextField
+            type = "text"
+            hintText = "write something..."
+            onChange = {this.handleContentChange}
+            value = {this.state.newPost.content}
+          />
+        </div>
         <FlatButton
           onClick = {this.handleSubmit}
           label = "submit"
-        />
-				<div>
+        /> 
+        <div>
           {this.state.posts.map( post => 
-					  <div className = "postList" key = {post.id}>
-						  <PostList
-							  post = {post}
-							/>
-					  </div>,
-				  )}	
-				</div>
+            <div className = "postList" key = {post.id}>
+              <PostList
+                post = {post}
+              />
+            </div>,
+          )}
+        </div>
       </div>
     );
   }
