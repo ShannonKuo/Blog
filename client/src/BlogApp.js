@@ -84,7 +84,7 @@ class BlogApp extends Component {
     this.setState({ newPost: { id: '', user: '', content: '', time: '' } });
 		
   }
-  componentDidMount() {
+ /* componentDidMount() {
     fetch('/post')
       .then(res => res.json())
       .then((data) => {
@@ -92,7 +92,7 @@ class BlogApp extends Component {
         this.setState({ index: data.length })
       })
       .catch(err => console.error(err));
-  }
+  }*/
   render() {
     return (
       <div className="BlogApp">
