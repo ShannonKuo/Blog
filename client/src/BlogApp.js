@@ -62,13 +62,6 @@ class BlogApp extends Component {
     this.setState({ index: this.state.index + 1 });
   }
   handlePostServer() {
-    //const data = this.state.newPost;
-    const data = { "id": '1', "title": 'sdf', "content": 'dfg'};
-    data.time = Date();
-    console.log("post test");
-    console.log(this.state.newPost.id);
-    console.log(this.state.newPost.title);
-    console.log(this.state.newPost.content);
     fetch('/api/addpost', {
       method: 'POST',
       headers: {
@@ -86,8 +79,13 @@ class BlogApp extends Component {
       if (!response.ok) throw new Error(response.statusText)
       return response.json()
     });
-    this.setState({ newPost: { id: '', user: '', content: '', time: '' } });
-		
+    this.setState({
+			newPost: {
+				id: '',
+				title: '',
+				content: ''
+			}
+		});
   }
   componentDidMount() {
     fetch('/api/posts')
@@ -101,10 +99,10 @@ class BlogApp extends Component {
   render() {
     return (
       <div className="BlogApp">
-        <div className="App-header">
+        <div className="Appheader">
           <h2>Turtur Blog</h2>
         </div>
-        <div>
+        <div className="Title">
           <TextField
             type = "text"
             hintText = "title..."
@@ -112,19 +110,22 @@ class BlogApp extends Component {
             value = {this.state.newPost.title}
           />
         </div>
-        <div>
-          <TextField
+        <div className="Input">
+          <textarea
             type = "text"
-            hintText = "write something..."
+						rows = "4"
+						cols = "50"
             onChange = {this.handleContentChange}
             value = {this.state.newPost.content}
           />
         </div>
-        <FlatButton
-          onClick = {this.handleSubmit}
-          label = "submit"
-        /> 
-        <div>
+				<div className="Submit">
+          <FlatButton
+            onClick = {this.handleSubmit}
+            label = "submit"
+          /> 
+				</div>
+        <div className="container">
           {this.state.posts.map( post => 
             <div className = "postList" key = {post.id}>
               <PostList

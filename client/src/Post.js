@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton'
 import './App.css';
@@ -30,15 +31,22 @@ class Post extends Component {
   }
 
   render() {
+		const html = this.state.post.content.replace(/\r?\n/g, '<br />');
     return (
       <div className="Post">
-        <p> {this.state.post.title} </p>
-        <p> {this.state.post.content} </p>
-        <Link to = {'/'}>
-          <FlatButton
-            label = "Back To Home"
-          />
-        </Link>
+				<div className="Back">
+          <Link to = {'/'}>
+            <FlatButton
+              label = "Back To Home"
+            />
+          </Link>
+				</div>
+			  <div className="SinglePostTitle">
+          <p> {this.state.post.title} </p>
+				</div>
+				<div className="SinglePostContent">
+          <p> {ReactHtmlParser(html)} </p>
+				</div>
       </div>
     );
   }
