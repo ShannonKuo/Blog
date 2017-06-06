@@ -14,7 +14,6 @@ class Post extends Component {
 
   componentDidMount() {
     const {id} = this.props.match.params;
-
     fetch(`/api/post/${id}`, {
       method: 'GET',
       headers: {
@@ -31,22 +30,22 @@ class Post extends Component {
   }
 
   render() {
-		const html = this.state.post.content.replace(/\r?\n/g, '<br />');
+    const html = this.state.post.content.replace(/\r?\n/g, '<br />');
     return (
       <div className="Post">
-				<div className="Back">
+        <div className="Back">
           <Link to = {'/'}>
             <FlatButton
               label = "Back To Home"
             />
           </Link>
-				</div>
-			  <div className="SinglePostTitle">
+        </div>
+        <div className="SinglePostTitle">
           <p> {this.state.post.title} </p>
-				</div>
-				<div className="SinglePostContent">
+            </div>
+            <div className="SinglePostContent">
           <p> {ReactHtmlParser(html)} </p>
-				</div>
+        </div>
       </div>
     );
   }

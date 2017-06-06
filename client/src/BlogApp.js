@@ -18,8 +18,8 @@ class BlogApp extends Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleAddPost = this.handleAddPost.bind(this);
-		this.handlePostServer = this.handlePostServer.bind(this);
+    this.handleAddPost = this.handleAddPost.bind(this);
+    this.handlePostServer = this.handlePostServer.bind(this);
   }
   handleTitleChange(e) {
     if (e.key === 'Enter') {
@@ -80,12 +80,12 @@ class BlogApp extends Component {
       return response.json()
     });
     this.setState({
-			newPost: {
-				id: '',
-				title: '',
-				content: ''
-			}
-		});
+      newPost: {
+        id: '',
+        title: '',
+        content: ''
+      }
+    });
   }
   componentDidMount() {
     fetch('/api/posts')
@@ -113,18 +113,18 @@ class BlogApp extends Component {
         <div className="Input">
           <textarea
             type = "text"
-						rows = "4"
-						cols = "50"
+            rows = "4"
+            cols = "50"
             onChange = {this.handleContentChange}
             value = {this.state.newPost.content}
           />
         </div>
-				<div className="Submit">
+        <div className="Submit">
           <FlatButton
             onClick = {this.handleSubmit}
             label = "submit"
           /> 
-				</div>
+        </div>
         <div className="container">
           {this.state.posts.map( post => 
             <div className = "postList" key = {post.id}>

@@ -10,7 +10,6 @@ import PostList from './PostList';
 import Post from './Post';
 
 import registerServiceWorker from './registerServiceWorker';
-import './index.css';
 
 
 injectTapEventPlugin();

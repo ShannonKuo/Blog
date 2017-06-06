@@ -9,32 +9,31 @@ body {
   flex: initial;
   left: 0;
   top: 0;
-	color: #FFFFFF;
+  color: #FFFFFF;
   text-align: center;
   font-size: 1cm;
   font-family: 'Marcellus SC', cursive;
 }
 .Title {
   color: #FFFFFF;
-  margin-left: 40%;
   font-size: 1cm;
-  text-align: left;
+  text-align: center;
 }
 .Input {
   margin-top: 3%;
   font-size: 0.7cm;
   margin-bottom: 20px;
-	margin-left: 37%;
-	width: 500px;
+  text-align: center;
 }
 .Submit {
-  margin-left: 48%;
+  margin-bottom: 5%;
+  text-align: center;
 }
 .container {
   -webkit-flex: 1;
   flex: 1;
   width: 100%;
-	margin-left: 10%;
+  margin-left: 10%;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -43,7 +42,7 @@ body {
   font-family: 'Marcellus SC', cursive;
 }
 .PostList {
-	width: 70%;
+  width: 70%;
   background-color: rgba(255,255,255,0.6);
   position: relative;
   color: #FFFFFF;
@@ -59,12 +58,9 @@ body {
 .PostTitle {
   font-size: 0.7cm;
 }
-.PostContent {
-  
-}
 .Post {
-	width: 80%;
-	height: 80%;
+  width: 80%;
+  height: 80%;
   position: relative;
   color: #FFFFFF;
   word-break: break-all;
@@ -78,28 +74,16 @@ body {
 }
 .SinglePostTitle {
   font-size: 1cm;
-	text-align: center;
+  text-align: center;
 }
 .SinglePostContent {
-	height: 500px;
-	padding-left: 3%;
-	padding-top: 3%;
-	font-size: 0.5cm;
-  background-color: rgba(255,255,255,0.4);
-	overflow-y: auto;
+  height: 500px;
+  padding-left: 3%;
+  padding-top: 3%;
+  font-size: 0.5cm;
+  background-color: rgba(255,255,255,0.2);
+  overflow-y: auto;
 }
 .Back {
   text-align: right;
-}
-.material-icons {
-  margin-top: 15%;
-}
-.item {
-  float: left;
-}
-.commentButton {
-  float: left;
-}
-.comment {
-  font-size: 0.5cm;
 }
